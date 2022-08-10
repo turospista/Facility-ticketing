@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import Issue from "./Issue";
-import Reply from "./Reply";
 
 function Submit(props) {
 
@@ -11,22 +10,13 @@ function Submit(props) {
     const [isSubmitting, setSubmitting] = useState(false);
     const [issues, setIssues] = useState(props.issues);
     const [isAdmin, setAdmin] = useState(false);
-//////////////
-    const [replies, setReplies] = useState(props.issues);
 
-
-    function replying(reply) {
-        const newReply = { reply: reply };
-        setReplies([...replies, newReply]);
-    }
-
-
-//////////////
     const issueList = issues.map(issue => (
         <Issue
             name={issue.name}
             desc={issue.desc}
             email={issue.email}
+            reply={issue.reply}
             id={issue.id}
             key={issue.id}
             deleteIssue={deleteIssue}

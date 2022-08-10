@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import Submit from './components/Submit';
-import Reply from './components/Reply';
 
 function App(props) {;
 
