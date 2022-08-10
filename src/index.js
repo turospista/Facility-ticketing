@@ -4,10 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const DATA = [
+  {
+    id: "issue-1",
+    name: "Broken pipe",
+    desc: "Desc1",
+    email: "email",
+    reply: "reply"
+  }
+];
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App issues={DATA} />
   </React.StrictMode>
 );
 
