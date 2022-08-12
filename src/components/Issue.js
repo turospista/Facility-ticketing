@@ -5,12 +5,6 @@ function Issue(props) {
     const [reply, setReply] = useState("");
     const [replies, setReplies] = useState(props.issues);
 
-
-    /*function replying(reply) {
-        const newReply = { reply: reply };
-        setReplies([...replies, newReply]);
-    }*/
-
     function handleChangeReply(e) {
         setReply(e.target.value);
     }
@@ -30,7 +24,7 @@ function Issue(props) {
                 <li>E-mail: {props.email}</li>
                 <li>ID: {props.id}</li>
                 <li>Reply: {replies}</li>
-                <button type="button" onClick={() => props.deleteIssue(props.id)}>
+                <button type="button" onClick={() => props.deleteIssue(props.id)} className="butt">
                     Delete
                 </button>
             </label>
@@ -40,7 +34,7 @@ function Issue(props) {
                     value={reply}
                     onChange={handleChangeReply}
                 />
-                <button type="submit">Send reply</button>
+                <button type="submit" className="butt">Send reply</button>
             </form>
         </div>
     );

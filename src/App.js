@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Submit from './components/Submit';
 
-function App(props) {;
+function App(props) {
 
-  const [issues, setIssues] = useState(props.issues);
-
-    /*function replying(reply) {
-      const newReply = {reply: reply};
-      setReplies([...replies, newReply]);
-    }*/
+  const data = props.issues;
 
   return (
     <div className="App">
-      <Submit issues={issues} />
+      <Submit issues={data} />
     </div>
   );
 }

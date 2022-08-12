@@ -1,16 +1,125 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(211, 211, 211);
 }
-*:focus {
-  outline: 3px dashed #228bec;
-  outline-offset: 0;
-}
+
 html {
-  font: 62.5% / 1.15 sans-serif;
+	font: 62.5% / 1.15 sans-serif;
 }
 
 li {
-    font-size: 20px;
+	font-size: 15px;
+}
+
+h1,
+h2,
+h3 {
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+label {
+	font-size: large;
+	display: block;
+	margin: 30px 0 10px 0;
+}
+
+.startDiv {
+	margin-bottom: 40px;
+}
+
+.submitForm input, #descInput {
+	outline: none;
+	padding: 10px;
+	border: 0.5px solid grey;
+	border-radius: 10px;
+	box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+	display: block;
+	margin: 0 auto;
+	width: 45%;
+}
+
+#descInput {
+	height: 150px;
+}
+
+input:focus {
+	border: 2px solid black;
+}
+
+#descInput:focus {
+	border: 2px solid black;
+}
+
+.submitButton, .butt {
+	display: block;
+	margin: 30px auto;
+	width: 200px;
+	height: 36px;
+	border-radius: 18px;
+	background-color: #1cff3e;
+	border: solid 1px transparent;
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+	cursor: pointer;
+	transition: all .1s ease-in-out;
+}
+
+.submitButton:hover {
+	background-color: lightgray;
+	border-color: rgb(0, 0, 0);
+	transition: all .4s ease-in-out;
+}
+
+.butt:hover {
+	background-color: lightgray;
+	border-color: rgb(0, 0, 0);
+	transition: all .4s ease-in-out;
+}
+
+.loginButtons {
+	position: absolute;
+	display: flex;
+	right: 0px;
+}
+
+.loginButtons button {
+	border: none;
+	padding: 6px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.slider {
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 90%;
+	margin: 0 auto;
+	height: 2px;
+	background-color: #000;
+	width: 0%;
+	transition: width 1s;
+}
+
+.name {
+	color: #000;
+	font-family: 'Arial-BoldMT';
+	font-size: 35px;
+	letter-spacing: -2px;
+	display: block;
+	left: 50%;
+	transform: translate(-50%, 0);
+	top: 30%;
+	margin: 0px 10px;
+}
+
+.name:hover>.slider {
+	width: 100%;
 }

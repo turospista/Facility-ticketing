@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Issue from "./Issue";
+// import MUI
 
 function Submit(props) {
 
@@ -21,8 +22,6 @@ function Submit(props) {
             key={issue.id}
             deleteIssue={deleteIssue}
         />
-
-        
     ));
 
     function submitting(name, desc, email) {
@@ -55,55 +54,92 @@ function Submit(props) {
         setEmail("");
     }
 
-    const startingTemplate = (
-        <form>
-            <h1>Facility ticketing</h1>
-            <button type="button" onClick={() => setSubmitting(true)}>
-                Report an issue
+    const userTemplate = (
+        <div>
+        </div>
+    );
+
+    const login = (
+        <div className="loginButtons">
+            <span className="name"><button type='button' onClick={() => setAdmin(true)}>
+                Login
             </button>
-        </form>
+                <div className="slider"></div></span>
+        </div>
+    );
+
+    const logout = (
+        <div className="loginButtons">
+            <span className="name"><button type='button' onClick={() => setAdmin(false)}>
+                Logout
+            </button>
+                <div className="slider"></div></span>
+        </div>
+    );
+
+    const startingTemplate = (
+        <div className="startDiv">
+            <form>
+                {isAdmin ? logout : login}
+                <h1>Facility ticketing</h1>
+                <button type="button"
+                    onClick={() => setSubmitting(true)}
+                    className="butt"
+                >
+                    Report an issue
+                </button>
+            </form>
+        </div>
+
     );
 
     const submittingTemplate = (
-        <div>
-            <h1>Facility ticketing</h1>
+        <div className="">
             <h2>Report an issue</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Title</label>
+            <form
+                className="submitForm"
+                onSubmit={handleSubmit}>
+                <label className="">Title</label>
                 <input
                     type="text"
-                    id="new-issue"
-                    className="new-issue classname"
+                    id=""
+                    className=""
                     name="text"
                     autoComplete="off"
+                    defaultValue="Title"
                     value={title}
                     onChange={handleChange}
+                    required="true"
                 />
                 <label>Description</label>
-                <input
+                <textarea
                     type="text"
-                    id="new-issue-desc"
-                    className="new-issue-desc classname"
+                    id="descInput"
+                    className=""
                     name="desc"
                     autoComplete="off"
                     value={desc}
                     onChange={handleChangeDesc}
+                    required="true"
                 />
-                <h3>Attach a picture</h3>
+                <label>Attach a picture</label>
                 <input type="file" />
                 <label>E-mail</label>
                 <input
                     type="text"
                     value={email}
                     onChange={handleChangeEmail}
+                    required="true"
                 />
-                <br />
-                <br />
-                <button type="submit">
-                    Submit
-                </button>
+                <div className="">
+                    <button
+                        type="submit"
+                        className="submitButton">
+                        Submit
+                    </button>
+                </div>
             </form>
-        </div>
+        </div >
     );
 
     const adminTemplate = (
@@ -113,21 +149,14 @@ function Submit(props) {
         </div>
     );
 
-    const userTemplate = (
-        <div>
-        </div>
-    );
+
 
     return (
         <div>
-            <button type='button' onClick={() => setAdmin(true)}>
-                Login
-            </button>
-            <button type='button' onClick={() => setAdmin(false)}>
-                Logout
-            </button>
+
             {isSubmitting ? submittingTemplate : startingTemplate}
             {isAdmin ? adminTemplate : userTemplate}
+
         </div>
     )
 }
